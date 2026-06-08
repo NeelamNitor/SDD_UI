@@ -1,0 +1,16 @@
+{
+  "name": "Demo UI - Enterprise Angular Application",
+  "short_name": "Demo UI",
+  "theme_color": "#1976d2",
+  "background_color": "#fafafa",
+  "display": "standalone",
+  "scope": "./",
+  "start_url": "./",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    }
+  ]
+}

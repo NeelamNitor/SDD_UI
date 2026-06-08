@@ -1,0 +1,159 @@
+// Variables
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+$success-color: #28a745;
+$danger-color: #dc3545;
+$font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+// Global styles
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: $font-family;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f8f9fa;
+}
+
+body {
+  color: #333;
+  line-height: 1.5;
+}
+
+// Utility classes
+.text-primary {
+  color: $primary-color !important;
+}
+
+.text-success {
+  color: $success-color !important;
+}
+
+.text-danger {
+  color: $danger-color !important;
+}
+
+.bg-primary {
+  background-color: $primary-color !important;
+}
+
+.bg-secondary {
+  background-color: $secondary-color !important;
+}
+
+// Scrollbar styling
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+
+  &:hover {
+    background: #555;
+  }
+}
+
+// Form controls
+.form-control:focus,
+.form-select:focus {
+  border-color: $primary-color;
+  box-shadow: 0 0 0 0.2rem rgba($primary-color, 0.25);
+}
+
+// Buttons
+button {
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+  }
+}
+
+// Links
+a {
+  color: $primary-color;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// Tables
+table {
+  border-collapse: collapse;
+
+  th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    border-bottom: 2px solid #dee2e6;
+  }
+
+  td {
+    border-bottom: 1px solid #dee2e6;
+  }
+
+  tr:hover {
+    background-color: #f8f9fa;
+  }
+}
+
+// Cards
+.card {
+  border: none;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+
+  &:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  }
+}
+
+// Alerts
+.alert {
+  border-radius: 0.5rem;
+  border: none;
+
+  &-success {
+    background-color: #d4edda;
+    color: #155724;
+  }
+
+  &-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+  }
+
+  &-warning {
+    background-color: #fff3cd;
+    color: #856404;
+  }
+
+  &-info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+  }
+}
+
+// Loading spinner
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

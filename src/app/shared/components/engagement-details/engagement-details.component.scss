@@ -1,0 +1,77 @@
+.engagement-details {
+  .card {
+    border-radius: 0.5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    margin-bottom: 1rem;
+
+    .card-header {
+      border-radius: 0.5rem 0.5rem 0 0;
+      padding: 1rem;
+
+      h5 {
+        font-weight: 600;
+      }
+    }
+
+    .card-body {
+      padding: 1.5rem;
+
+      .form-label {
+        margin-bottom: 0.5rem;
+        color: #333;
+      }
+
+      .text-muted {
+        font-size: 0.95rem;
+        padding: 0.25rem 0;
+      }
+
+      .table-responsive {
+        border-radius: 0.5rem;
+        overflow: hidden;
+
+        .table {
+          margin-bottom: 0;
+
+          thead {
+            .table-light {
+              background-color: #f8f9fa;
+            }
+
+            th {
+              font-weight: 600;
+              color: #333;
+              padding: 1rem;
+              border-bottom: 2px solid #dee2e6;
+              white-space: nowrap;
+            }
+          }
+
+          tbody {
+            tr {
+              &:hover {
+                background-color: #f8f9fa;
+              }
+
+              td {
+                padding: 0.75rem 1rem;
+                vertical-align: middle;
+                border-bottom: 1px solid #dee2e6;
+
+                &:last-child {
+                  white-space: nowrap;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .alert {
+    border-radius: 0.5rem;
+    border: none;
+  }
+}
+

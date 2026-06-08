@@ -1,0 +1,61 @@
+<div class="scoping-container">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <h3 class="mb-4">Engagement Scoping</h3>
+
+        <!-- Tabs Navigation -->
+        <ul class="nav nav-tabs mb-4" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              [class.active]="activeTab === 'details'"
+              (click)="setActiveTab('details')"
+              type="button"
+              role="tab">
+              Engagement Details
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              [class.active]="activeTab === 'add'"
+              (click)="setActiveTab('add')"
+              type="button"
+              role="tab">
+              Add Engagement
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              [class.active]="activeTab === 'fund'"
+              (click)="setActiveTab('fund')"
+              type="button"
+              role="tab">
+              Fund Scoping
+            </button>
+          </li>
+        </ul>
+
+        <!-- Tab Content -->
+        <div class="tab-content">
+          <!-- Engagement Details Tab -->
+          <div class="tab-pane" [class.active]="activeTab === 'details'" role="tabpanel">
+            <app-engagement-details></app-engagement-details>
+          </div>
+
+          <!-- Add Engagement Tab -->
+          <div class="tab-pane" [class.active]="activeTab === 'add'" role="tabpanel">
+            <app-add-engagement></app-add-engagement>
+          </div>
+
+          <!-- Fund Scoping Tab -->
+          <div class="tab-pane" [class.active]="activeTab === 'fund'" role="tabpanel">
+            <app-fund-scoping-page></app-fund-scoping-page>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

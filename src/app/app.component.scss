@@ -1,0 +1,54 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  .navbar {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    margin-bottom: 0;
+
+    .navbar-brand {
+      font-size: 1.5rem;
+      font-weight: 600;
+
+      &:hover {
+        color: #0d6efd !important;
+      }
+    }
+
+    .nav-link {
+      margin-left: 1rem;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: #0d6efd !important;
+      }
+
+      &.active {
+        color: #0d6efd !important;
+        font-weight: 500;
+      }
+    }
+  }
+
+  .main-content {
+    flex: 1;
+    padding: 2rem 0;
+    background-color: #f8f9fa;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    .navbar {
+      .nav-link {
+        margin-left: 0;
+        padding: 0.5rem 0;
+      }
+    }
+
+    .main-content {
+      padding: 1rem 0;
+    }
+  }
+}
