@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { AddEngagementModule } from '../../shared/components/add-engagement/add-engagement.module';
 import { EngagementDetailsModule } from '../../shared/components/engagement-details/engagement-details.module';
+import { FundModule } from '../fund/fund.module';
 import { ScopingComponent } from './components/scoping/scoping.component';
 
 const routes: Routes = [
@@ -18,7 +19,8 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     AddEngagementModule,
-    EngagementDetailsModule
+    EngagementDetailsModule,
+    FundModule
   ]
 })
 export class ScopingModule { }

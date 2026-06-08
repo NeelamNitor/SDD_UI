@@ -13,7 +13,7 @@
               (click)="setActiveTab('details')"
               type="button"
               role="tab">
-              <i class="icon"></i> Engagement Details
+              Engagement Details
             </button>
           </li>
           <li class="nav-item" role="presentation">
@@ -23,7 +23,17 @@
               (click)="setActiveTab('add')"
               type="button"
               role="tab">
-              <i class="icon"></i> Add Engagement
+              Add Engagement
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              [class.active]="activeTab === 'fund'"
+              (click)="setActiveTab('fund')"
+              type="button"
+              role="tab">
+              Fund Scoping
             </button>
           </li>
         </ul>
@@ -38,6 +48,11 @@
           <!-- Add Engagement Tab -->
           <div class="tab-pane" [class.active]="activeTab === 'add'" role="tabpanel">
             <app-add-engagement></app-add-engagement>
+          </div>
+
+          <!-- Fund Scoping Tab -->
+          <div class="tab-pane" [class.active]="activeTab === 'fund'" role="tabpanel">
+            <app-fund-scoping-page></app-fund-scoping-page>
           </div>
         </div>
       </div>

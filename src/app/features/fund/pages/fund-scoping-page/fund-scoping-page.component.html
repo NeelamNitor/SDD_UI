@@ -1,0 +1,88 @@
+<div class="fund-scoping-page">
+
+  <!-- Banners -->
+  <div *ngIf="successMessage" class="alert alert-success alert-dismissible fade show" role="alert">
+    {{ successMessage }}
+    <button type="button" class="btn-close" (click)="successMessage = ''"></button>
+  </div>
+  <div *ngIf="errorMessage" class="alert alert-danger alert-dismissible fade show" role="alert">
+    {{ errorMessage }}
+    <button type="button" class="btn-close" (click)="errorMessage = ''"></button>
+  </div>
+  <div *ngIf="infoMessage" class="alert alert-info alert-dismissible fade show" role="alert">
+    {{ infoMessage }}
+    <button type="button" class="btn-close" (click)="infoMessage = ''"></button>
+  </div>
+
+  <!-- Toolbar -->
+  <div class="toolbar d-flex align-items-center gap-2 mb-3 flex-wrap">
+    <button type="button" class="btn btn-primary btn-sm"
+            [disabled]="!canAdd || saving"
+            (click)="onAddFund()"
+            aria-label="Add new fund row">
+      + Add Fund
+    </button>
+
+    <button type="button" class="btn btn-outline-secondary btn-sm"
+            [disabled]="!canDuplicate || saving"
+            (click)="onDuplicateFund()"
+            aria-label="Duplicate selected fund">
+      Duplicate Fund
+    </button>
+
+    <button type="button" class="btn btn-outline-danger btn-sm"
+            [disabled]="!canDelete || saving"
+            (click)="onDeleteFund()"
+            aria-label="Delete selected funds">
+      Delete Fund
+    </button>
+
+    <button type="button" class="btn btn-success btn-sm"
+            [disabled]="saving"
+            (click)="onSave()"
+            aria-label="Save all new fund rows">
+      <span *ngIf="saving" class="spinner-border spinner-border-sm me-1" role="status"></span>
+      Save
+    </button>
+
+    <span class="ms-auto text-muted small">{{ rowCount }} / {{ MAX_FUNDS }} funds</span>
+
+    <button type="button" class="btn btn-outline-secondary btn-sm"
+            (click)="onBack()"
+            aria-label="Go back">
+      &#8592; Back
+    </button>
+  </div>
+
+  <!-- Back Confirmation Modal -->
+  <div class="modal fade" id="backConfirmModal" tabindex="-1"
+       aria-labelledby="backModalLabel" aria-hidden="true" #backModal>
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="backModalLabel">Unsaved Changes</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">Are you sure you want to leave this page without saving?</div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+          <button type="button" class="btn btn-primary" (click)="confirmBack()">Yes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fund Scoping Grid -->
+  <app-fund-scoping-grid
+    [funds]="(funds$ | async) ?? []"
+    [lookups]="(lookups$ | async) ?? { typeOfFunds: [], typeOfInvestments: [], fundAdministrators: [], brokerCustodians: [], reportingCurrencies: [] }"
+    [loading]="(loading$ | async) ?? false"
+    [error]="(error$ | async) ?? null"
+    [newlyAddedFundIds]="(newlyAddedFundIds$ | async) ?? []"
+    (rowCountChange)="onRowCountChange($event)"
+    (selectedIdsChange)="onSelectedIdsChange($event)"
+    (dirtyChange)="onDirtyChange($event)"
+    (clearMessages)="onClearMessages()">
+  </app-fund-scoping-grid>
+
+</div>

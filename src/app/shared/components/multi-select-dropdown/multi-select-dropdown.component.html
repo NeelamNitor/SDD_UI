@@ -1,0 +1,21 @@
+<div class="multi-select-wrapper" [class.disabled]="isDisabled">
+  <button type="button"
+          class="form-control form-control-sm text-start dropdown-toggle-btn"
+          [class.disabled]="isDisabled"
+          (click)="toggleDropdown()">
+    <span class="selected-text">{{ displayText }}</span>
+    <span class="caret ms-auto">&#9660;</span>
+  </button>
+
+  <div class="dropdown-panel" *ngIf="isOpen">
+    <div class="dropdown-option" *ngFor="let opt of options">
+      <label class="d-flex align-items-center gap-2 mb-0 px-2 py-1">
+        <input type="checkbox"
+               [checked]="isSelected(opt.id)"
+               (change)="toggleOption(opt.id)">
+        <span>{{ opt.name }}</span>
+      </label>
+    </div>
+    <div *ngIf="options.length === 0" class="px-2 py-1 text-muted small">No options</div>
+  </div>
+</div>

@@ -1,9 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MultiSelectDropdownComponent } from './components/multi-select-dropdown/multi-select-dropdown.component';
+import { DatepickerWrapperComponent } from './components/datepicker-wrapper/datepicker-wrapper.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    MultiSelectDropdownComponent,
+    DatepickerWrapperComponent
+  ],
   imports: [
     CommonModule,
     FormsModule,
@@ -12,7 +17,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   exports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MultiSelectDropdownComponent,
+    DatepickerWrapperComponent
   ]
 })
 export class SharedModule { }
