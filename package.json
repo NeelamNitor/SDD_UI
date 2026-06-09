@@ -11,7 +11,7 @@
     "build-prod": "ng build --configuration=production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test --watch=true --browsers=Chrome",
-    "test:headless": "node --max_old_space_size=8192 node_modules/@angular/cli/bin/ng test --watch=false --progress=false --browsers=ChromeHeadless --code-coverage",
+    "test:headless": "node --max_old_space_size=8192 node_modules/@angular/cli/bin/ng test --watch=false --progress=false --browsers=ChromeHeadlessCI --code-coverage",
     "postinstall": "node ./src/assets/scripts/SSLCert.Install.js",
     "lint": "ng lint"
   },
@@ -29,19 +29,19 @@
     "@azure/msal-angular": "^4.0.0",
     "@azure/msal-browser": "^4.0.0",
     "@microsoft/signalr": "^8.0.0",
-    "@ngrx/effects": "^19.2.1",
-    "@ngrx/store": "^19.0.0",
-    "@ngrx/store-devtools": "^19.0.0",
+    "@ngrx/effects": "^20.0.0",
+    "@ngrx/store": "^20.0.0",
+    "@ngrx/store-devtools": "^20.0.0",
     "bootstrap": "^5.3.0",
     "crypto-js": "^4.2.0",
     "file-saver": "^2.0.5",
     "jszip": "^3.10.0",
     "luxon": "^3.4.0",
     "rxjs": "^7.8.0",
-    "zone.js": "^0.14.0"
+    "zone.js": "^0.15.0"
   },
   "devDependencies": {
-    "@angular-eslint/schematics": "^19.0.0",
+    "@angular-eslint/schematics": "^20.0.0",
     "@angular/build": "^20.0.0",
     "@angular/cli": "^20.0.0",
     "@angular/compiler-cli": "^20.0.0",
