@@ -2,9 +2,11 @@ name: Node.js CI
 'on':
   push:
     branches:
+      - main
       - master
   pull_request:
     branches:
+      - main
       - master
 jobs:
   build:
@@ -21,7 +23,7 @@ jobs:
         with:
           node-version: '${{ matrix.node-version }}'
       - name: Install dependencies
-        run: npm install --ignore-scripts
+        run: npm ci --ignore-scripts
       - name: Build project
         run: npm run build
   unit-test:
@@ -38,7 +40,7 @@ jobs:
         with:
           node-version: '${{ matrix.node-version }}'
       - name: Install dependencies
-        run: npm install --ignore-scripts
+        run: npm ci --ignore-scripts
       - name: Run unit tests
         run: npm run test:headless
 

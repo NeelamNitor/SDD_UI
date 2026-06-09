@@ -11,7 +11,7 @@
     "build-prod": "ng build --configuration=production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test --watch=true --browsers=Chrome",
-    "test:headless": "node --max_old_space_size=8192 node_modules/@angular/cli/bin/ng test --watch=false --progress=false --browsers=ChromeHeadless --code-coverage",
+    "test:headless": "node --max_old_space_size=8192 node_modules/@angular/cli/bin/ng test --watch=false --progress=false --browsers=ChromeHeadlessCI --code-coverage",
     "postinstall": "node ./src/assets/scripts/SSLCert.Install.js",
     "lint": "ng lint"
   },
