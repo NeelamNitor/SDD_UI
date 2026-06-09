@@ -12,7 +12,6 @@ jobs:
     strategy:
       matrix:
         node-version:
-          - 18.x
           - 20.x
           - 22.x
     steps:
@@ -21,9 +20,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '${{ matrix.node-version }}'
-          cache: npm
       - name: Install dependencies
-        run: npm i
+        run: npm install --ignore-scripts
       - name: Build project
         run: npm run build
   unit-test:
@@ -31,7 +29,6 @@ jobs:
     strategy:
       matrix:
         node-version:
-          - 18.x
           - 20.x
           - 22.x
     steps:
@@ -40,8 +37,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '${{ matrix.node-version }}'
-          cache: npm
       - name: Install dependencies
-        run: npm i
+        run: npm install --ignore-scripts
       - name: Run unit tests
-        run: npm run testt
+        run: npm run test:headless
+
