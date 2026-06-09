@@ -1,4 +1,6 @@
 module.exports = function (config) {
+  const isCI = !!process.env.CI;
+
   config.set({
     basePath: '',
     frameworks: ['jasmine', '@angular-devkit/build-angular'],
@@ -29,15 +31,23 @@ module.exports = function (config) {
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
-    autoWatch: true,
-    browsers: ['Chrome'],
+    autoWatch: !isCI,
+    // register a CI-safe custom launcher and use it when running on CI
     customLaunchers: {
       ChromeHeadlessCI: {
         base: 'ChromeHeadless',
-        flags: ['--no-sandbox', '--disable-gpu', '--disable-dev-shm-usage']
+        flags: [
+          '--no-sandbox',
+          '--disable-setuid-sandbox',
+          '--disable-dev-shm-usage',
+          '--disable-gpu',
+          '--disable-translate',
+          '--disable-extensions'
+        ]
       }
     },
-    singleRun: false,
-    restartOnFileChange: true
+    browsers: isCI ? ['ChromeHeadlessCI'] : ['Chrome'],
+    singleRun: isCI,
+    restartOnFileChange: !isCI
   });
 };
